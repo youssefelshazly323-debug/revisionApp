@@ -7,7 +7,12 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 18,
 		paddingTop: 78,
 	},
-	banner: { width: '100%', height: 150, marginBottom: 24, borderRadius: 12 },
+	banner: {
+		width: '100%',
+		height: 150,
+		marginBottom: 24,
+		borderRadius: 12,
+	},
 	content: {
 		alignItems: 'center',
 		backgroundColor: '#ffffff',
