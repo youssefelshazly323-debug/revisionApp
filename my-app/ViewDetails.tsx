@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { MaterialTopTabScreenProps } from '@react-navigation/material-top-tabs';
+import FadeView from './FadeView';
 
 type TabParamList = {
   Home: undefined;
@@ -13,13 +14,33 @@ type TabParamList = {
 
 type Props = MaterialTopTabScreenProps<TabParamList, 'ViewDetails'>;
 
+function createArrayLog(logArray: string[]) {
+  let outputString = '';
+
+  for (const block of logArray) {
+    outputString += `${block} `;
+  }
+
+  return outputString;
+}
+
 export default function ViewDetails({ route }: Props) {
+  const details = [
+    route.params.NameSend,
+    route.params.SurnameSend,
+  ];
+  const output = createArrayLog(details);
+
+  console.log(output);
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Your details</Text>
-      <Text style={styles.detail}>Name: {route.params.NameSend}</Text>
-      <Text style={styles.detail}>Surname: {route.params.SurnameSend}</Text>
-    </View>
+    <FadeView style={styles.container}>
+      <View>
+        <Text style={styles.title}>Your details</Text>
+        <Text style={styles.detail}>Name: {details[0]}</Text>
+        <Text style={styles.detail}>Surname: {details[1]}</Text>
+      </View>
+    </FadeView>
   );
 }
 
