@@ -23,17 +23,20 @@ export default function MainScreen({ navigation }: Props) {
         <Text style={styles.subtitle}>Keep your details and skills ready to review.</Text>
         <View style={styles.divider} />
         <Pressable
-          style={styles.primaryButton}
+          style={({ pressed }) => [styles.primaryButton, pressed && styles.buttonPressed]}
           onPress={() =>
-          navigation.navigate('ViewDetails', {
-            NameSend: 'Youssef',
-            SurnameSend: 'Elshazly',
-          })
+            navigation.navigate('ViewDetails', {
+              NameSend: 'Youssef',
+              SurnameSend: 'Elshazly',
+            })
           }
         >
           <Text style={styles.primaryButtonText}>VIEW DETAILS</Text>
         </Pressable>
-        <Pressable style={styles.secondaryButton} onPress={() => navigation.navigate('ListSkills')}>
+        <Pressable
+          style={({ pressed }) => [styles.secondaryButton, pressed && styles.buttonPressed]}
+          onPress={() => navigation.navigate('ListSkills')}
+        >
           <Text style={styles.secondaryButtonText}>LIST YOUR SKILLS</Text>
         </Pressable>
       </View>
